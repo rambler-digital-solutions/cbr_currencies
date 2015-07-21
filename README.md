@@ -1,14 +1,12 @@
 # CbrCurrency
 
-Гем тащит курсы валют с API ЦБ
+Гем тащит курсы валют с [API ЦБ](http://www.cbr.ru/scripts/XML_daily.asp)
 
 ## Установка
 
 В Gemfile:
 
-```ruby
-gem 'cbr_currency'
-```
+    gem 'cbr_currency'
 
 Или вручную:
 
