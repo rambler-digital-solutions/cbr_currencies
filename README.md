@@ -54,6 +54,8 @@
       #<CbrCurrency::Currency:0x007f88548f3458 @char_code=:jpy, @value=0.460756, @title="Японских иен", @date=#<Date: 2015-07-23 ((2457227j,0s,0n),+0s,2299161j)>>
     ]
 
+`@value` - это то, сколько надо заплатить рублей за 1 единицу иностранной валюты. Например, 1 евро стоит 62.39р, а 1 Вон Республики Корея стоит около 0.04р.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
