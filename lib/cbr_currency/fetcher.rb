@@ -16,8 +16,8 @@ module CbrCurrency
 
       private
 
-      def fetch_xml(path = DEFAULT_URI)
-        uri = URI(path)
+      def fetch_xml
+        uri = URI(DEFAULT_URI)
         file = Net::HTTP.get uri
 
         Nokogiri::XML file
