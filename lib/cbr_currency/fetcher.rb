@@ -31,7 +31,8 @@ module CbrCurrency
           char_code: xml_valute.xpath("CharCode").text,
           value: xml_valute.xpath("Value").text,
           title: xml_valute.xpath("Name").text,
-          nominal: xml_valute.xpath("Nominal").text
+          nominal: xml_valute.xpath("Nominal").text,
+          date: xml_valute.xpath("//ValCurs").attr("Date").value
         }
       end
     end
