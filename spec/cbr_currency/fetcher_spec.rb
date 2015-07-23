@@ -3,7 +3,8 @@ require 'spec_helper'
 RSpec.describe CbrCurrency::Fetcher do
 
   describe '.fetch' do
-    subject { CbrCurrency::Fetcher.call }
+    let(:fetcher) { CbrCurrency::Fetcher.new }
+    subject { fetcher.call }
     before { stub_request(:get, /.*/).to_return(response) }
 
     context 'when response is ok' do

@@ -17,4 +17,8 @@ module CbrCurrency
     @configuration ||= Configuration.new
   end
 
+  def self.call
+    fetcher = CbrCurrency::Fetcher.new
+    fetcher.call
+  end
 end
