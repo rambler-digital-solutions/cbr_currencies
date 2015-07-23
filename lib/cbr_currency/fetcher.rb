@@ -30,14 +30,21 @@ module CbrCurrency
         xml.xpath("//Valute")
       end
 
-      # NOTE: учесть некорректный xml
       def extract_currency(xml)
+        code = xml.xpath("CharCode")
+        cost = xml.xpath("Value")
+        title = xml.xpath("Name")
+        amount = xml.xpath("Nominal")
+        date = xml.xpath("//ValCurs").attr("Date")
+
+        raise ArgumentError.new("incorrect xml structure") unless code && cost && title && amount && date
+
         {
-          code: xml.xpath("CharCode").text,
-          cost: xml.xpath("Value").text,
-          title: xml.xpath("Name").text,
-          amount: xml.xpath("Nominal").text,
-          date: xml.xpath("//ValCurs").attr("Date").value
+          code: code.text,
+          cost: cost.text,
+          title: title.text,
+          amount: amount.text,
+          date: date.value
         }
       end
 

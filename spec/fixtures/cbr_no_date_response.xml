@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValCurs name="Foreign Currency Market">
+<Valute ID="R01235">
+  <NumCode>840</NumCode>
+  <CharCode>USD</CharCode>
+  <Nominal>1</Nominal>
+  <Name>Доллар США</Name>
+  <Value>57,0025</Value>
+</Valute>
+<Valute ID="R01239">
+  <NumCode>978</NumCode>
+  <CharCode>EUR</CharCode>
+  <Nominal>1</Nominal>
+  <Name>Евро</Name>
+  <Value>61,7622</Value>
+</Valute>
+</ValCurs>

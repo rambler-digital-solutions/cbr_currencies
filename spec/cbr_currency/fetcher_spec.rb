@@ -4,18 +4,20 @@ RSpec.describe CbrCurrency::Fetcher do
 
   describe '.fetch' do
     subject { CbrCurrency::Fetcher.call }
+    before { stub_request(:get, /.*/).to_return(response) }
 
-    context 'when cbr response is ok' do
-      let(:response) { { body: load_fixture('cbr_response.xml') } }
-      before { stub_request(:get, /.*/).to_return(response) }
+    context 'when response is ok' do
+      context 'and xml structure is ok' do
+        let(:response) { { body: load_fixture('cbr_response.xml') } }
 
-      it { is_expected.to be_a_kind_of Array }
-    end
+        it { is_expected.not_to be_empty }
+      end
 
-    context 'when cbr request timeout' do
-      before { stub_request(:get, /.*/).to_raise(Timeout::Error) }
+      context 'and xml has no date' do
+        let(:response) { { body: load_fixture('cbr_no_date_response.xml') } }
 
-      it { is_expected.to be nil }
+        it { expect { subject }.to raise_error(ArgumentError) }
+      end
     end
   end
 end
