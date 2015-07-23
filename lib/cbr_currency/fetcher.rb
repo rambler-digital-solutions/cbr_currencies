@@ -2,12 +2,9 @@ require 'nokogiri'
 
 module CbrCurrency
   class Fetcher
-    # FIXME: move it somewhere else
-    DEFAULT_URI = "http://www.cbr.ru/scripts/XML_daily.asp"
-
     class << self
       def call
-        xml = fetch_xml DEFAULT_URI
+        xml = fetch_xml CbrCurrency.configuration.cbr_uri
         return unless xml
 
         currencies = fetch_currencies xml
@@ -23,6 +20,8 @@ module CbrCurrency
 
         Nokogiri::XML file
       rescue *exceptions => e
+        CbrCurrency.configuration.logger.error e
+
         nil
       end
 
@@ -49,7 +48,8 @@ module CbrCurrency
       end
 
       def exceptions
-        [Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError]
+        [Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
+          Net::ProtocolError, Nokogiri::XML::SyntaxError]
       end
     end
   end
