@@ -55,6 +55,28 @@
 
 `@rate` - это то, сколько надо заплатить рублей за 1 единицу иностранной валюты. Например, 1 евро стоит 62.39р, а 1 Вон Республики Корея стоит около 0.04р.
 
+## Конфигурация
+
+    CbrCurrency.configure |config| do
+      config.cbr_uri = "www.example.com"
+      config.logger = mylogger
+    end
+
+Ожидается, что по адресу `cbr_uri` будет xml вида
+
+    <ValCurs Date="24.07.2015" name="Foreign Currency Market">
+      <Valute ID="R01010">
+        <NumCode>036</NumCode>
+        <CharCode>AUD</CharCode>
+        <Nominal>1</Nominal>
+        <Name>Австралийский доллар</Name>
+        <Value>42,4964</Value>
+      </Valute>
+    </ValCurs>
+
+По дефолту `cbr_uri = "http://www.cbr.ru/scripts/XML_daily.asp"`.
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
