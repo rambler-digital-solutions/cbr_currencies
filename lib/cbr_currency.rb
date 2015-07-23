@@ -1,6 +1,6 @@
 require "cbr_currency/version"
+require 'cbr_currency/fetcher'
+require 'cbr_currency/currency'
 
 module CbrCurrency
-  autoload 'Fetcher', 'cbr_currency/fetcher'
-  autoload 'Currency', 'cbr_currency/currency'
 end

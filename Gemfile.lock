@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     cbr_currency (0.1.0)
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -56,11 +57,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
+  bundler (~> 1.10)
   cbr_currency!
-  nokogiri
   pry-byebug
-  rake
+  rake (~> 10.0)
   rspec
   simplecov
   webmock
