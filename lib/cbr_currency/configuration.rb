@@ -4,7 +4,7 @@ module CbrCurrency
 
     def initialize
       @cbr_uri = "http://www.cbr.ru/scripts/XML_daily.asp"
-      @logger = Logging.logger(STDOUT)
+      @logger = defined?(Rails) ? Rails.logger : Logging.logger(STDOUT)
     end
   end
 end

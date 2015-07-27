@@ -19,7 +19,7 @@ module CbrCurrency
 
       Nokogiri::XML file
     rescue *exceptions => e
-      CbrCurrency.configuration.logger.error e
+      CbrCurrency.configuration.logger.warn e
 
       nil
     end
