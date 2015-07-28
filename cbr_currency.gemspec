@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Fetches currency from CBR"
   spec.description   = "Fetches currency from CBR"
-  spec.homepage      = "http://example.com"
+  spec.homepage      = "https://github.com/rambler-digital-solutions/cbr_currencies"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
