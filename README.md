@@ -1,22 +1,22 @@
 # CbrCurrency
 
-Гем тащит курсы валют с [API ЦБ](http://www.cbr.ru/scripts/XML_daily.asp)
+Ruby gem for retrieving currencies data from The Central Bank of the Russian Federation
 
-## Установка
+## Installation
 
-В Gemfile:
+Put to Gemfile:
 
     gem 'cbr_currency'
 
-Или вручную:
+Or install it manually:
 
     $ gem install cbr_currency
 
-## Как пользоваться
+## Usage
 
     CbrCurrency.call
 
-Вернет коллекцию:
+`CbrCurrency.call` will give you a collection of objects:
 
     [
       #<CbrCurrency::Currency:0x007fee0ca436c8 @code=:aud, @rate=42.4964, @title="Австралийский доллар", @date=#<Date: 2015-07-24 ((2457228j,0s,0n),+0s,2299161j)>>,
@@ -53,16 +53,16 @@
       #<CbrCurrency::Currency:0x007fee0ca31630 @code=:krw, @rate=0.049388100000000004, @title="Вон Республики Корея", @date=#<Date: 2015-07-24 ((2457228j,0s,0n),+0s,2299161j)>>,
       #<CbrCurrency::Currency:0x007fee0ca31180 @code=:jpy, @rate=0.46332900000000005, @title="Японских иен", @date=#<Date: 2015-07-24 ((2457228j,0s,0n),+0s,2299161j)>>]
 
-`@rate` - это то, сколько надо заплатить рублей за 1 единицу иностранной валюты. Например, 1 евро стоит 62.39р, а 1 Вон Республики Корея стоит около 0.04р.
+`@rate` - shows how many Rubles should be given for 1 Euro, or Japanese Yen, or Turkish Lira, etc. For example, you should give 62,93 Russian Rubles for 1 Euro; or 0.46 Rubles (or 46 kopecks) for 1 Japanese Yen.
 
-## Конфигурация
+## Configuration
 
     CbrCurrency.configure |config| do
       config.cbr_uri = "www.example.com"
       config.logger = mylogger
     end
 
-Ожидается, что по адресу `cbr_uri` будет xml вида
+It is expected, that `cbr_uri` gives an XML of the following format:
 
     <ValCurs Date="24.07.2015" name="Foreign Currency Market">
       <Valute ID="R01010">
@@ -74,7 +74,8 @@
       </Valute>
     </ValCurs>
 
-По дефолту `cbr_uri = "http://www.cbr.ru/scripts/XML_daily.asp"`.
+By default `cbr_uri = "http://www.cbr.ru/scripts/XML_daily.asp"`.
+By default `logger` is able to use Rails logger if you integrate this gem to a Rails app, otherwise Logging to STDOUT will be used.
 
 
 ## License
