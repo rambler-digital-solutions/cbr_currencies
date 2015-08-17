@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cbr_currency (1.0.1)
+    cbr_currency (1.1.0)
       logging
       nokogiri
 
