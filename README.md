@@ -57,7 +57,7 @@ Or install it manually:
 
 ## Configuration
 
-    CbrCurrency.configure |config| do
+    CbrCurrency.configure do |config|
       config.cbr_uri = "www.example.com"
       config.logger = mylogger
     end
