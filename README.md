@@ -60,6 +60,8 @@ Or install it manually:
     CbrCurrency.configure do |config|
       config.cbr_uri = "www.example.com"
       config.logger = mylogger
+      config.proxy_host = 'proxy'
+      config.proxy_port = 8080
     end
 
 It is expected, that `cbr_uri` gives an XML of the following format:
