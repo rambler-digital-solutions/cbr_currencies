@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cbr_currency (0.1.0)
+    cbr_currency (1.0.1)
       logging
       nokogiri
 
@@ -34,6 +34,9 @@ GEM
     pry-byebug (3.1.0)
       byebug (~> 4.0)
       pry (~> 0.10)
+    rack (1.6.4)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.4.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -66,6 +69,7 @@ DEPENDENCIES
   bundler (~> 1.10)
   cbr_currency!
   pry-byebug
+  rack-test
   rake (~> 10.0)
   rspec
   simplecov

@@ -3,7 +3,11 @@ require 'nokogiri'
 module CbrCurrency
   class Fetcher
     def call
-      xml = fetch_xml CbrCurrency.configuration.cbr_uri
+      xml = fetch_xml(
+        CbrCurrency.configuration.cbr_uri,
+        CbrCurrency.configuration.proxy_host,
+        CbrCurrency.configuration.proxy_port
+      )
       return unless xml
 
       currencies = fetch_currencies xml
@@ -13,9 +17,10 @@ module CbrCurrency
 
     private
 
-    def fetch_xml(uri)
+    def fetch_xml(uri, proxy_host, proxy_port)
       uri = URI(uri)
-      file = Net::HTTP.get uri
+      http = Net::HTTP::Proxy(proxy_host, proxy_port)
+      file = http.get(uri)
 
       Nokogiri::XML file
     rescue *exceptions => e
