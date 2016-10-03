@@ -1,5 +1,7 @@
 # CbrCurrency
 
+[![Gem Version](https://badge.fury.io/rb/cbr_currency.svg)](https://badge.fury.io/rb/cbr_currency)
+
 Ruby gem for retrieving currencies data from The Central Bank of the Russian Federation
 
 ## Installation
